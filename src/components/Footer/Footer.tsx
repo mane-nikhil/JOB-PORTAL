@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import { Briefcase, Mail, MapPin, Phone } from "tabler-icons-react";
 import {
   BrandFacebook,
@@ -6,6 +7,9 @@ import {
 } from "tabler-icons-react";
 
 const Footer = () => {
+  const location = useLocation();
+  if (location.pathname === "/signup" || location.pathname === "/login")
+    return null; // Avoid rendering Header on signup page
   return (
     <div className="pt-20 pb-5  text-mine-shaft-100 bg-mine-shaft-950 font-['poppins']">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
